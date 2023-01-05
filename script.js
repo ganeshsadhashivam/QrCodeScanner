@@ -16,7 +16,7 @@ function fetchRequest(formData, file) {
   })
     .then((res) => res.json())
     .then((result) => {
-      console.log(result);
+      // console.log(result);
       result = result[0].symbol[0].data;
       infoText.innerText = result
         ? "Upload QR Code to Scan"
@@ -25,10 +25,10 @@ function fetchRequest(formData, file) {
       wrapper.querySelector("textarea").innerText = result;
       timeout = setTimeout(() => {
         form.querySelector("img").src = URL.createObjectURL(file);
-        console.log(timeout);
+        //console.log(timeout);
         clearTimeout(timeout);
       }, 500);
-      console.log(result);
+      //  console.log(result);
       wrapper.classList.add("active");
     })
     .catch(() => {
@@ -45,7 +45,7 @@ fileInp.addEventListener("change", (e) => {
   //adding selected file to formData
   formData.append("file", file);
   fetchRequest(formData, file);
-  console.log(file);
+  // console.log(file);
 });
 
 copyBtn.addEventListener("click", () => {
@@ -60,7 +60,7 @@ form.addEventListener("click", () => fileInp.click());
 closeBtn.addEventListener("click", () => {
   timeout = setTimeout(() => {
     wrapper.classList.remove("active");
-    console.log(timeout);
+    //  console.log(timeout);
     clearTimeout(timeout);
   }, 200);
 });
